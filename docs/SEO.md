@@ -64,17 +64,4 @@ Structured data is embedded statically in the head section of [index.html](file:
 - **WebSite** schema.
 - **WebPage** schema.
 
----
 
-## 5. Skill & Portfolio Highlights
-We added a highlighted competency focus:
-- **Digital Marketing & Growth**:
-  - In [SkillsWorld.tsx](file:///Users/devanshsingh/Desktop/devansh_universe/src/worlds/SkillsWorld.tsx), a dedicated skills card is now live featuring:
-    - *Digital Marketing (Meta & Google Ads)*
-    - *Ad Copywriting & Creatives Design*
-    - *Campaign Optimization & Budgeting*
-    - *Growth Marketing & SEO Strategy*
-  - Re-mapped Skills description in the 3D galaxy visualization ([universe.ts](file:///Users/devanshsingh/Desktop/devansh_universe/src/data/universe.ts)) to highlight marketing.
-- **Generic SDE Intern Phrasing**:
-  - Replaced all explicit references to "AIRIZZ" on the homepage bio and main layout.
-  - Refined the experience timelines in [ExperienceWorld.tsx](file:///Users/devanshsingh/Desktop/devansh_universe/src/worlds/ExperienceWorld.tsx) to describe SDE Intern contributions at a **Stealth SaaS Startup**.
