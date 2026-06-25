@@ -1,0 +1,463 @@
+/* ==========================================================================
+   DEVANSH'S DIGITAL UNIVERSE - DESIGN SYSTEM & GLOBALS
+   ========================================================================== */
+
+:root {
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-handwriting: 'Caveat', cursive;
+  --font-mono: 'Fira Code', monospace;
+  --font-display: 'Outfit', 'Syne', sans-serif;
+
+  /* Global Colors & Transition Tokens */
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: all 0.2s ease;
+  
+  /* Shared Base Tokens */
+  --color-overlay: rgba(0, 0, 0, 0.4);
+  --color-border-glow: rgba(255, 255, 255, 0.1);
+  
+  /* Scroll Settings */
+  scroll-behavior: auto; /* Handled by Lenis in script */
+}
+
+/* Reset and Core Layout */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #050508; /* Starting deep space black */
+  color: #e2e8f0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Global scrollbars for premium look */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   WORLD SPECIFIC VARIABLES & STYLES
+   Apply these classes to container sections to adapt layouts immediately
+   ========================================================================== */
+
+/* 1. Projects World: Technical, Modern, Navy/Dark Charcoal */
+.world-projects {
+  --bg-world: #0a0e17;
+  --bg-card: #111827;
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --accent: #38bdf8; /* Soft blue */
+  --accent-light: rgba(56, 189, 248, 0.1);
+  --border: #1f2937;
+  --font-primary: var(--font-sans);
+  --font-headers: var(--font-display);
+  --code-bg: #030712;
+  
+  background-color: var(--bg-world);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+}
+
+/* 2. Research World: Minimalist, Pure Academic White */
+.world-research {
+  --bg-world: #fcfcfd;
+  --bg-card: #ffffff;
+  --text-main: #1f2937;
+  --text-muted: #4b5563;
+  --accent: #111827; /* Ink black */
+  --accent-light: #f3f4f6;
+  --border: #e5e7eb;
+  --font-primary: var(--font-serif);
+  --font-headers: var(--font-serif);
+  
+  background-color: var(--bg-world);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+}
+
+/* 3. Writing World: Reading-focused, Warm Paper */
+.world-writing {
+  --bg-world: #faf7f2;
+  --bg-card: #ffffff;
+  --text-main: #2d2a26;
+  --text-muted: #6b6661;
+  --accent: #c2410c; /* Warm terracotta/orange */
+  --accent-light: rgba(194, 65, 12, 0.05);
+  --border: #e6dfd5;
+  --font-primary: var(--font-serif);
+  --font-headers: var(--font-sans);
+  
+  background-color: var(--bg-world);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+}
+
+/* 4. Shayari World: Handwritten Journal Aesthetic */
+.world-shayari {
+  --bg-world: #fcf9f2;
+  --text-main: #3e3830;
+  --text-muted: #7d7365;
+  --accent: #8b5a2b; /* Ink brown */
+  --border: rgba(139, 90, 43, 0.15);
+  --font-primary: var(--font-serif);
+  --font-headers: var(--font-handwriting);
+  
+  background-color: var(--bg-world);
+  color: var(--text-main);
+  font-family: var(--font-primary);
+  /* Lined paper visual effect */
+  background-image: linear-gradient(rgba(139, 90, 43, 0.08) 1px, transparent 1px);
+  background-size: 100% 2.2rem;
+  line-height: 2.2rem;
+}
+
+/* 5. Community World: Editorial Timeline & Gallery */
+.world-community {
+  --bg-world: #0b0c10;
+  --bg-card: #1f2833;
+  --text-main: #c5a880; /* Editorial gold accent */
+  --text-muted: #95a5a6;
+  --accent: #45f3ff; /* Cyan timeline glow */
+  --border: #2c3e50;
+  --font-primary: var(--font-sans);
+  --font-headers: var(--font-display);
+  
+  background-color: var(--bg-world);
+  color: #f5f6fa;
+  font-family: var(--font-primary);
+}
+
+/* Lenis scroll container configurations */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overflow: clip;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Common UI Utilities */
+.btn-back {
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: inherit;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: var(--transition-fast);
+}
+
+.btn-back:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateX(-3px);
+}
+
+.world-research .btn-back,
+.world-writing .btn-back,
+.world-shayari .btn-back {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.world-research .btn-back:hover,
+.world-writing .btn-back:hover,
+.world-shayari .btn-back:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Custom fade entries */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+  50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(56,189,248,0.2); }
+  50% { box-shadow: 0 0 40px rgba(56,189,248,0.4); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes statCountIn {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.stat-card-anim {
+  animation: statCountIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
+/* ==========================================================================
+   TABLET RESPONSIVE BREAKPOINTS (max-width: 1024px)
+   ========================================================================== */
+@media (max-width: 1024px) {
+  /* Back button positioning and scale for tablet */
+  .btn-back {
+    top: 1rem !important;
+    left: 1rem !important;
+    font-size: 0.8rem !important;
+    padding: 0.4rem 0.85rem !important;
+  }
+
+  /* Universal layouts for all worlds stack on tablet/mobile */
+  .world-projects > div,
+  .world-research > div,
+  .world-writing > div,
+  .world-shayari > div,
+  .world-community > div,
+  .world-experience > div,
+  .world-skills > div,
+  .world-future > div {
+    flex-direction: column !important;
+    padding: 5rem 1.5rem 3rem 1.5rem !important;
+    gap: 2rem !important;
+  }
+
+  /* Force sidebars and detail areas to take 100% width on tablet/mobile */
+  .world-projects > div > div,
+  .world-research > div > div,
+  .world-writing > div > div,
+  .world-shayari > div > div,
+  .world-community > div > div,
+  .world-experience > div > div,
+  .world-skills > div > div,
+  .world-future > div > div {
+    min-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  /* Portal headers styling on tablet */
+  .world-projects h1,
+  .world-research h1,
+  .world-writing h1,
+  .world-shayari h1,
+  .world-community h1,
+  .world-experience h1,
+  .world-skills h1,
+  .world-future h1 {
+    font-size: 2rem !important;
+  }
+
+  /* Skills grid column override to 2-columns on tablet */
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Experience layout card spacing for tablet */
+  .experience-card {
+    padding: 1.5rem !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE BREAKPOINTS (max-width: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+  /* Back button */
+  .btn-back {
+    top: 0.75rem !important;
+    left: 0.75rem !important;
+    font-size: 0.75rem !important;
+    padding: 0.35rem 0.75rem !important;
+    z-index: 200 !important;
+  }
+
+  /* Adjust padding further for small mobile viewports */
+  .world-projects > div,
+  .world-research > div,
+  .world-writing > div,
+  .world-shayari > div,
+  .world-community > div,
+  .world-experience > div,
+  .world-skills > div,
+  .world-future > div {
+    padding: 4.5rem 1rem 3rem 1rem !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Throttling down headers and titles inside portals for small screens */
+  .world-projects h1,
+  .world-research h1,
+  .world-writing h1,
+  .world-shayari h1,
+  .world-community h1,
+  .world-experience h1,
+  .world-skills h1,
+  .world-future h1 {
+    font-size: 1.8rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .world-projects h2,
+  .world-research h2,
+  .world-writing h2,
+  .world-shayari h2,
+  .world-community h2,
+  .world-experience h2,
+  .world-skills h2,
+  .world-future h2 {
+    font-size: 1.3rem !important;
+  }
+
+  /* Experience layout card spacing */
+  .experience-card {
+    padding: 1.25rem !important;
+    gap: 1.25rem !important;
+  }
+
+  /* Skills grid column override */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  /* Shayari notebook page margin/indentation */
+  .diary-page {
+    padding-left: 0.75rem !important;
+    border-left: 1.5px solid rgba(139, 90, 43, 0.25) !important;
+  }
+
+  .world-shayari p {
+    font-size: 1.1rem !important;
+    line-height: 1.8rem !important;
+  }
+
+  /* Experience list details stacking */
+  .experience-card > div {
+    min-width: 100% !important;
+    flex: 1 1 100% !important;
+  }
+
+  /* HUD Header layout adjustments on mobile */
+  .sub-logo-mobile {
+    display: none !important;
+  }
+
+  header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 0.75rem 1rem !important;
+    gap: 0.5rem !important;
+    background: rgba(5, 5, 8, 0.95) !important;
+  }
+
+  header nav {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-bottom: 4px !important;
+  }
+
+  /* Floating social dock layout on mobile */
+  .floating-social-dock-mobile {
+    flex-direction: row !important;
+    left: 50% !important;
+    bottom: 1.25rem !important;
+    transform: translateX(-50%) !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Form padding adjustments on mobile */
+  #contact-section form {
+    padding: 1.25rem !important;
+  }
+
+  /* Portal Sidebars & Detail read area overrides */
+  .read-area-sticky {
+    position: relative !important;
+    top: auto !important;
+    align-self: stretch !important;
+  }
+
+  .writing-list-container {
+    max-height: 250px !important;
+    overflow-y: auto !important;
+    padding: 0.5rem !important;
+    background: rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+  }
+
+  /* Projects horizontal scrollable list */
+  .project-list-mobile {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    padding-bottom: 8px !important;
+    scrollbar-width: none !important;
+  }
+  .project-list-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .project-item-mobile {
+    min-width: 140px !important;
+    width: auto !important;
+    flex-shrink: 0 !important;
+    padding: 0.6rem 0.8rem !important;
+  }
+
+  .project-item-mobile > div {
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+    overflow: hidden !important;
+  }
+
+  .project-desc-short-mobile {
+    display: none !important;
+  }
+}
