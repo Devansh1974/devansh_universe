@@ -250,7 +250,8 @@ export const WritingWorld: React.FC<WritingWorldProps> = ({ onBack, selectedNode
                   {activeItem.thumbnail && (
                     <img
                       src={activeItem.thumbnail}
-                      alt=""
+                      alt={activeItem.title || "Article thumbnail"}
+                      loading="lazy"
                       style={articleThumbnailStyle}
                       onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
                     />

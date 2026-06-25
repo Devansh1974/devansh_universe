@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowLeft, Code, Database, Cpu, Layout } from 'lucide-react';
+import { ArrowLeft, Code, Database, Cpu, Layout, TrendingUp } from 'lucide-react';
 import type { UniverseNode } from '../data/universe';
 
 interface SkillsWorldProps {
@@ -52,6 +52,17 @@ export const SkillsWorld: React.FC<SkillsWorldProps> = ({ onBack }) => {
         { name: 'Docker / CI-CD', level: 78, icon: 'DK' },
         { name: 'AWS / Azure / Vercel / Render', level: 75, icon: 'CL' },
         { name: 'Gemini API / OpenAI / ElevenLabs', level: 85, icon: 'AI' }
+      ]
+    },
+    {
+      title: 'Digital Marketing & Growth',
+      icon: <TrendingUp size={18} style={{ color: '#fbbf24' }} />,
+      color: '#fbbf24',
+      skills: [
+        { name: 'Digital Marketing (Meta & Google Ads)', level: 92, icon: 'DM' },
+        { name: 'Ad Copywriting & Creatives Design', level: 88, icon: 'AC' },
+        { name: 'Campaign Optimization & Budgeting', level: 90, icon: 'CO' },
+        { name: 'Growth Marketing & SEO Strategy', level: 86, icon: 'GM' }
       ]
     }
   ];

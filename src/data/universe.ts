@@ -121,10 +121,10 @@ export const universeNodes: UniverseNode[] = [
     level: 1,
     val: 18,
     color: '#34d399',
-    description: 'Core languages, backend architectures, and deep learning frameworks.',
+    description: 'Core languages, backend architectures, digital marketing (Meta & Google Ads), and deep learning frameworks.',
     preview: {
       title: 'Tech Constellation',
-      subtitle: 'Systems, AI & Design Stack',
+      subtitle: 'Systems, AI, Marketing & Design Stack',
       actionText: 'Scan Skills →'
     }
   },

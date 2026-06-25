@@ -51,14 +51,14 @@ export const CommunityWorld: React.FC<PublicSpeakerProps> = ({ onBack, selectedN
       title: 'Interpreting Anomalies in Graph Structures',
       event: 'Tech Horizons Summit 2024',
       duration: '18:45',
-      url: 'https://youtube.com',
+      url: 'https://www.youtube.com/@bydevansh',
       thumbnail: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&auto=format&fit=crop&q=60'
     },
     {
       title: 'Building Algorithmic Trading Engines with LSTM Networks',
       event: 'ML Developers Webinar 2023',
       duration: '24:12',
-      url: 'https://youtube.com',
+      url: 'https://www.youtube.com/@bydevansh',
       thumbnail: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=500&auto=format&fit=crop&q=60'
     }
   ];
@@ -87,12 +87,12 @@ export const CommunityWorld: React.FC<PublicSpeakerProps> = ({ onBack, selectedN
           
           {/* Quick links to platforms */}
           <div style={platformsCardStyle}>
-            <a href="https://youtube.com" target="_blank" rel="noreferrer" style={platformLinkStyle}>
+            <a href="https://www.youtube.com/@bydevansh" target="_blank" rel="noreferrer" style={platformLinkStyle}>
               <YoutubeIcon size={16} style={{ color: '#ff0000' }} />
               <span>YouTube Channel</span>
               <ExternalLink size={12} />
             </a>
-            <a href="https://instagram.com/devansh_raghuvanshi" target="_blank" rel="noreferrer" style={platformLinkStyle}>
+            <a href="https://www.instagram.com/bydevansh" target="_blank" rel="noreferrer" style={platformLinkStyle}>
               <InstagramIcon size={16} style={{ color: '#e1306c' }} />
               <span>Instagram Page</span>
               <ExternalLink size={12} />

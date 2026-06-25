@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://devanshh.tech/sitemap.xml

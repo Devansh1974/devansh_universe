@@ -12,7 +12,7 @@ export const ExperienceWorld: React.FC<ExperienceWorldProps> = ({ onBack }) => {
   const experiences = [
     {
       role: 'Software Development Engineer Intern',
-      company: 'AIRIZZ',
+      company: 'Stealth SaaS Startup',
       location: 'Bengaluru, India',
       period: 'June 2026 – Present',
       color: '#38bdf8',
